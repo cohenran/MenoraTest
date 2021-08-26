@@ -1,0 +1,36 @@
+<configuration>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %cyan([%d{dd-MM-yyyy HH:mm:ss.SSS}]) %magenta([%-18thread]) %highlight([%-5level]) %boldYellow([%-29logger{29}.%-12M]):%yellow([%-3line]) %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/${user.dir}/logs/logback.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/${user.dir}/logs/logback.%d{dd-MM-yyyy}.%i.log</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} %thread %-5level %logger{36}:[%line] -%X{username} %msg%n</pattern>
+            <outputPatternAsHeader>true</outputPatternAsHeader>
+        </encoder>
+    </appender>
+
+    <logger name="org.hibernate.type.descriptor.sql" level="info" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+    <logger name="com.menora.envelope_reader" level="DEBUG"/>
+    <logger name="org.apache" level="INFO"/>
+    <logger name="org.springframework" level="INFO"/>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="file"/>
+    </root>
+</configuration>

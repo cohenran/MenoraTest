@@ -1,0 +1,45 @@
+spring:
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+      INDENT_OUTPUT: true
+  mvc:
+    log-request-details: true
+    converters:
+      preferred-json-mapper: gson
+
+  web:
+    resources:
+      static-locations[0]: file:src/main/resources/static/
+      static-locations[1: classpath:/static/
+  #original db
+  datasource:
+    url: jdbc:h2:mem:${h2.service.local.database}
+    username: ${h2.service.local.username}
+    password: ${h2.service.local.password}
+    initialization-mode: always
+    driverClassName: org.h2.Driver
+
+  h2:
+    console:
+      enabled: true
+      path: /h2
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate:
+      hbm2ddl:
+        auto: update
+      ddl-auto: create
+    show-sql: false
+    #spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+  http:
+    converters:
+      preferred-json-mapper: gson
+
+server:
+  servlet:
+    context-path: /menora
+  port: 8080
