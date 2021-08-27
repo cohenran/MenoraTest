@@ -7,13 +7,12 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
-import javax.annotation.Resource;
 import java.time.LocalDateTime;
 
 @Slf4j
 @EnableScheduling
 @SpringBootApplication
-public class Application {	
+public class Application {
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(Application.class, args);
 	}

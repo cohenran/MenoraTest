@@ -45,5 +45,6 @@ server:
   port: 8080
   
 consts:
-  xml_location: D:\xmls
+  xml_location: D:\xmls\Request.xml
   inspect_duration: 3600000
+  request_details_id: "a3a4477e-88fa-49bd-9d30-7ec7dcab8f45"

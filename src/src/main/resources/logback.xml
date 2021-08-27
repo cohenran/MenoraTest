@@ -25,7 +25,7 @@
     <logger name="org.hibernate.type.descriptor.sql" level="info" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
-    <logger name="com.menora.envelope_reader" level="DEBUG"/>
+    <logger name="com.menora.envelope_reader" level="INFO"/>
     <logger name="org.apache" level="INFO"/>
     <logger name="org.springframework" level="INFO"/>
 
