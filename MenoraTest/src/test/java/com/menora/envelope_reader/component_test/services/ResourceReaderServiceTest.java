@@ -23,7 +23,7 @@ public class ResourceReaderServiceTest {
 
 	@Test
 	public void readResourceTest() throws FileNotFoundException {
-		String xml = resourceReaderService.resourceFileReader("F:\\Devl\\Java\\MenoraTest\\src\\src\\test\\resources\\Request.xml");
+		String xml = resourceReaderService.resourceFileReader("F:\\Devl\\Java\\MenoraTest\\MenoraTest\\src\\test\\resources\\Request.xml");
 
 		assertTrue(xml.length() > 0);
 	}
